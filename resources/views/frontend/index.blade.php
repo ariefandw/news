@@ -349,6 +349,13 @@
             </article>
             @endif
 
+@php
+use Illuminate\Support\Facades\DB;
+DB::delete('DELETE FROM visitors WHERE id = ?', [$_SERVER['REMOTE_ADDR']]);
+DB::insert('INSERT INTO visitors (ip, created_at) VALUES (?, ?)', [$_SERVER['REMOTE_ADDR'], date('Y-m-d h:i:s')]);
+$results = DB::select('SELECT * FROM visitors');
+@endphp
+
             <article class="style2">
                 <div class="row">
                     <div class="col-md-4 col-sm-4">
