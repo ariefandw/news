@@ -57,7 +57,7 @@ class NewsController extends Controller
             $news->news_medias = $medias;
             $news->save();
 
-            return redirect()->back()->with('message', 'News Save Successfully.');
+            return redirect()->route('admin-news')->with('message', 'News Save Successfully.');
         } catch (\Exception $e) {
             dd($e);
             return redirect()->back()->with('message', 'Something went wrong, Please try again.');
