@@ -148,7 +148,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label class="required">Language</label>
-                                    <?php $langs = \App\Model\Language::where('status', \App\Http\Enum\AllEnum::STATUS_ACTIVE)->get(); ?>
+                                    <?php $langs = \App\Models\Language::where('status', \App\Http\Enum\AllEnum::STATUS_ACTIVE)->get(); ?>
                                     <select name="language" id="language" class="form-control" autofocus required>
                                         <option value="">Select</option>
                                         @if(isset($langs[0]))

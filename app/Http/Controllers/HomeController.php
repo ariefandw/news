@@ -28,4 +28,13 @@ class HomeController extends Controller
 
         return view('frontend.index',compact('news_list'));
     }
+    
+    public function categoryNews($id, $category_slug = null)
+    {
+        $news_list = News::where('id', -1)
+            ->orderBy('created_at','desc')
+            ->get();
+
+        return view('frontend.index',compact('news_list'));
+    }
 }

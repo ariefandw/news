@@ -78,7 +78,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{url('/admin/news/add')}}" method="POST">
+                                <form action="{{url('/admin/news/save')}}" method="POST">
                                     {{csrf_field()}}
                                     <div class="form-group">
                                         <label>News Title</label>
@@ -87,8 +87,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label>News Description</label>
-                                        <div id="summernote" class="form-control" name="news_description"
-                                             rows="10"><p>{!! $news->news_description !!}</p></div>
+                                        <textarea id="summernote" class="form-control" name="news_description"
+                                             rows="10"><p>{!! $news->news_description !!}</p></textarea>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
@@ -202,7 +202,7 @@
                     <div id="media_form_html" style="height: 250px;overflow-x: scroll;"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" id="chose_media">Choose</button>
+                    <button type="button" class="btn btn-default" id="chose_media" data-dismiss="modal">Choose</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -256,7 +256,7 @@
 
 
         $(document.body).on('click', '#chose_media', function () {
-            $('#media_modal').modal('hide')
+            // $('#media_modal').modal('hide');
             var all_files = $('#file_path').html();
             $('#all_media').html(all_files);
         });

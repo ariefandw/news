@@ -6,6 +6,7 @@ use App\Http\Controllers\MobileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\MediaController;
+use App\Http\Controllers\Admin\AdvertismentController;
 
 /*
 |--------------------------------------------------------------------------
