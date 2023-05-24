@@ -39,8 +39,8 @@
                                     <th>ID</th>
                                     <th>Image</th>
                                     <th>Title</th>
-                                    <th>Language</th>
-                                    <th>Category</th>
+                                    <!-- <th>Language</th> -->
+                                    <!-- <th>Category</th> -->
                                     <th>Type</th>
                                     <th>Source</th>
                                     <th>Views</th>
@@ -54,8 +54,8 @@
                                     <th>ID</th>
                                     <th>Image</th>
                                     <th>Title</th>
-                                    <th>Language</th>
-                                    <th>Category</th>
+                                    <!-- <th>Language</th> -->
+                                    <!-- <th>Category</th> -->
                                     <th>Type</th>
                                     <th>Source</th>
                                     <th>Views</th>
@@ -76,12 +76,19 @@
                                                 @else src="{{asset('default.jpeg')}}"  @endif
                                                     width="100" alt="image">    
                                             @else
-                                                <img src="{{$news->news_medias}}" alt="image">
+                                            @php
+                                            $medias = !empty($news->news_medias) ? explode('|', $news->news_medias) : null;
+                                            $m = 'default.jpeg';
+                                            if(isset($medias[0]) && !empty($medias[0])){
+                                                $m = \App\Models\Media::findOrFail($medias[0])->media_url;
+                                            }
+                                            @endphp
+                                                <img src="{{ asset(Storage::url($m)) }}" style="height:30px;" alt="image">
                                             @endif
                                         </td>
                                         <td>{{$news->news_title}}</td>
-                                        <td>{{$news->news_lang}}</td>
-                                        <td>@if(isset($news->categories)) {{$news->categories->category_name}} @endif</td>
+                                        <!-- <td>{{$news->news_lang}}</td> -->
+                                        <!-- <td>@if(isset($news->categories)) {{$news->categories->category_name}} @endif</td> -->
                                         {{--                                        <td>@if($news->categories){{$news->categories->category_name}}@endif</td>--}}
                                         <td>
                                             @if($news->is_rss == 1)
