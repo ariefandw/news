@@ -325,7 +325,7 @@
             <h3 class="margin-bottom-15"><b>Top Stories</b></h3>
             @if(count($news_list) > 0)
             <article class="style3 style-alt">
-                <a href="../17_post_01.html">
+                <a href="{{ route('articleDetails', $news_list[0]->id) }}">
                     <div class="overlay overlay-02"></div>
                     <div class="post-thumb">
                         <!-- <div class="small-title cat">Travel</div> -->
@@ -348,13 +348,6 @@
                 </a>
             </article>
             @endif
-
-@php
-use Illuminate\Support\Facades\DB;
-DB::delete('DELETE FROM visitors WHERE id = ?', [$_SERVER['REMOTE_ADDR']]);
-DB::insert('INSERT INTO visitors (ip, created_at) VALUES (?, ?)', [$_SERVER['REMOTE_ADDR'], date('Y-m-d h:i:s')]);
-$results = DB::select('SELECT * FROM visitors');
-@endphp
 
             <article class="style2">
                 <div class="row">

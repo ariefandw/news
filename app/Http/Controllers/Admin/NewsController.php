@@ -42,10 +42,10 @@ class NewsController extends Controller
     {
         try {
             $tags = !empty($request->tag_id) ? implode('|', $request->tag_id) : null;
-            $medias = implode('|', $request->medias);
+            $medias = !empty($request->medias) ? implode('|', $request->medias) : null;
 
-            $news = new News();
-            $news->news_lang = $request->news_lang;
+            $news = empty($request->id) ? new News() : News::findOrFail($request->id);
+            $news->news_lang = 'EN'; //$request->news_lang;
             $news->news_provider = $request->news_provider;
             $news->news_title = $request->news_title;
             $news->news_description = $request->news_description;

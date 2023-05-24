@@ -82,6 +82,7 @@
                                     {{csrf_field()}}
                                     <div class="form-group">
                                         <label>News Title</label>
+                                        <input type="hidden" name="id" value="{{$news->id}}">
                                         <input type="" class="form-control" name="news_title"
                                                value="{{$news->news_title}}">
                                     </div>
@@ -108,7 +109,7 @@
                                                 <input type="text" class="form-control" name="news_provider"
                                                        value="{{$news->news_provider}}">
                                             </div>
-                                            <div class="col-sm-4">
+                                            <!-- <div class="col-sm-4">
                                                 <label>Language</label>
                                                 <?php $langs = \App\Models\Language::where('status', \App\Http\Enum\AllEnum::STATUS_ACTIVE)->get(); ?>
                                                 <select name="news_lang" id="news_lang" class="form-control" autofocus
@@ -120,7 +121,7 @@
                                                         @endforeach
                                                     @endif
                                                 </select>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -161,7 +162,7 @@
                                         </button>
                                         <div id="all_media">
                                             <?php $medias = explode('|', $news->news_medias) ?>
-                                            @if(isset($medias[0]))
+                                            @if(isset($medias[0]) && !empty($medias[0]))
                                                 @foreach($medias as $media)
                                                 @php
                                                     $m = \App\Models\Media::findOrFail($media);

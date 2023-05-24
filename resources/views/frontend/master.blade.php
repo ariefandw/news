@@ -49,7 +49,7 @@
                         </a>
                     </div>
                     <div class="col-md-6 col-sm-4">
-                        <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse</p>
+                        <h5 class="text-white">Jumlah pengunjung: <span class="label label-success">{{ $counter }}</span></h5>
                     </div>
                     <div class="col-md-4 col-sm-5">
                         <form class="footer-search">
