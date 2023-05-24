@@ -133,7 +133,8 @@
                                 <input type="number" name="add_rate" class="form-control" value="" id="add_rate" autofocus required>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <input type="hidden" name="add_position" value="3" />
+                        <!-- <div class="col-sm-4">
                             <div class="form-group">
                                 <label class="required">ADD Position</label>
                                 <select type="text" name="add_position" class="form-control" value="" id="add_position" autofocus required>
@@ -143,7 +144,7 @@
                                     <option value="4">Backpage</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label class="required">Status</label>
@@ -160,16 +161,16 @@
                                 <input type="file" accept="image/*" name="add_image" class="form-control" value="" id="add_image" autofocus required>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="required">Active Range</label>
                                 <div class="input-daterange input-group" id="datepicker">
-                                    <input type="text" class="input-sm form-control" id="ad_start" name="start" />
+                                    <input type="date" class="input-sm form-control" id="ad_start" name="start" />
                                     <span class="input-group-addon">to</span>
-                                    <input type="text" class="input-sm form-control" id="ad_end" name="end" />
+                                    <input type="date" class="input-sm form-control" id="ad_end" name="end" />
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="modal-footer">

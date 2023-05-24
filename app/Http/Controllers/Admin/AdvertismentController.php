@@ -46,8 +46,8 @@ class AdvertismentController extends Controller
                         'add_position' => 'required|integer',
                         'status' => 'required|integer',
                         'add_image' => 'nullable|image',
-                        'start' => 'required|string',
-                        'end' => 'required|string',
+                        // 'start' => 'required|string',
+                        // 'end' => 'required|string',
                     ]);
 
                     DB::beginTransaction();
@@ -55,10 +55,10 @@ class AdvertismentController extends Controller
                     if(!empty($request->file('add_image'))) {
 
                         if(!empty($request->id)) {
-                            Storage::delete('advertisement/'.$item->add_image);
+                            Storage::delete('public/advertisement/'.$item->add_image);
                         }
 
-                        $path = Storage::putFile('advertisement', $request->file('add_image'));
+                        $path = Storage::putFile('public/advertisement', $request->file('add_image'));
                         $item->add_image = $path;
                     }
                 
@@ -67,8 +67,9 @@ class AdvertismentController extends Controller
                     $item->add_rate = $request->add_rate;
                     $item->add_position = $request->add_position;
                     $item->status = $request->status;
-                    $item->ad_start = date('Y-m-d',strtotime($request->start));
-                    $item->ad_end = date('Y-m-d',strtotime($request->end));
+                    $item->add_lifetime = 0;
+                    // $item->ad_start = date('Y-m-d',strtotime($request->start));
+                    // $item->ad_end = date('Y-m-d',strtotime($request->end));
                     $item->save();
                     DB::commit();
                 }
