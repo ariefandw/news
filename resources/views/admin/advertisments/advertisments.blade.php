@@ -127,13 +127,12 @@
                                 <textarea type="text" rows="7" name="add_description" class="form-control" value="" id="add_description" autofocus required></textarea>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <!-- <div class="col-sm-4">
                             <div class="form-group">
                                 <label class="required">Price Rate</label>
                                 <input type="number" name="add_rate" class="form-control" value="" id="add_rate" autofocus required>
                             </div>
-                        </div>
-                        <input type="hidden" name="add_position" value="3" />
+                        </div> -->
                         <!-- <div class="col-sm-4">
                             <div class="form-group">
                                 <label class="required">ADD Position</label>

@@ -42,8 +42,8 @@ class AdvertismentController extends Controller
                     $request->validate([
                         'add_title' => 'required|max:255',
                         'add_description' => 'required|string',
-                        'add_rate' => 'required|numeric',
-                        'add_position' => 'required|integer',
+                        // 'add_rate' => 'required|numeric',
+                        // 'add_position' => 'required|integer',
                         'status' => 'required|integer',
                         'add_image' => 'nullable|image',
                         // 'start' => 'required|string',
@@ -64,8 +64,8 @@ class AdvertismentController extends Controller
                 
                     $item->add_title = $request->add_title;
                     $item->add_description = $request->add_description;
-                    $item->add_rate = $request->add_rate;
-                    $item->add_position = $request->add_position;
+                    $item->add_rate = 0; //$request->add_rate;
+                    $item->add_position = 3; //$request->add_position;
                     $item->status = $request->status;
                     $item->add_lifetime = 0;
                     // $item->ad_start = date('Y-m-d',strtotime($request->start));

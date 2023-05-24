@@ -154,7 +154,7 @@ Route::group(['middleware' => 'admin'], function () {
 |-----------------------------------------------------------------------------------------------------------------------
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/article', [HomeController::class, 'articleDetails'])->name('articleDetails');
+Route::get('/article/{id}', [HomeController::class, 'articleDetails'])->name('articleDetails');
 Route::get('/category/{id}/{category_slug?}', [HomeController::class, 'categoryNews'])->name('categoryNews');
 
 

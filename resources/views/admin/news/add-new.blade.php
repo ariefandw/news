@@ -163,9 +163,12 @@
                                             <?php $medias = explode('|', $news->news_medias) ?>
                                             @if(isset($medias[0]))
                                                 @foreach($medias as $media)
+                                                @php
+                                                    $m = \App\Models\Media::findOrFail($media);
+                                                @endphp
                                                     <span class="media-label" style="width: 16.66667%; float: left;"
                                                           id="media_label_'+media_id+'">
-                                                <div style="background-image: url('+media_file+'); margin: 0 2%;"
+                                                <div style="background-image: url('{{ Storage::url($m->media_url) }}'); margin: 0 2%;"
                                                      class="media_file"></div>
                                                 <input type="hidden" name="medias[]" value="{{$media}}">
                                                 <span onclick="remove_file($media)">&#10005;</span></span>

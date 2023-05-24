@@ -8,34 +8,22 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+        @foreach($ad_list as $i => $ad)
+        <li data-target="#myCarousel" data-slide-to="{{ $i }}" class="{{ $i == 1 ? 'active' : '' }}"></li>
+        @endforeach
         </ol>
 
         <!-- Slides -->
         <div class="carousel-inner">
-        <div class="item active">
-            <img src="{{asset('/frontend')}}/img/slider/1.jpg" alt="Image 1">
-            <div class="carousel-caption">
-            <h3>Slide 1</h3>
-            <p>Description of Slide 1</p>
+            @foreach($ad_list as $i => $ad)
+            <div class="item {{ $i == 1 ? 'active' : '' }}">
+                <img src="{{asset(Storage::url($ad->add_image))}}" alt="Image 1">
+                <div class="carousel-caption">
+                <h3>Slide 1</h3>
+                <p>Description of Slide 1</p>
+                </div>
             </div>
-        </div>
-        <div class="item">
-            <img src="{{asset('/frontend')}}/img/slider/2.jpg" alt="Image 2">
-            <div class="carousel-caption">
-            <h3>Slide 2</h3>
-            <p>Description of Slide 2</p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="{{asset('/frontend')}}/img/slider/3.jpg" alt="Image 3">
-            <div class="carousel-caption">
-            <h3>Slide 3</h3>
-            <p>Description of Slide 3</p>
-            </div>
-        </div>
+            @endforeach
         </div>
 
         <!-- Controls -->
@@ -56,7 +44,7 @@
         <div class="col-md-8">
 
             <!-- HOME SECTION 1 -->
-            <div class="padding-top-60">
+            <!-- <div class="padding-top-60">
                 
                 <div class="row">
                     @if(count($news_list) > 0)
@@ -107,11 +95,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- // HOME SECTION 1 -->
 
             <!-- HOME SECTION 2 -->
-            <h4 class="margin-bottom-15"><b>Trending Now</b></h4>
+            <!-- <h4 class="margin-bottom-15"><b>Trending Now</b></h4>
 
             <div class="row padding-bottom-30">
                 <div>
@@ -178,11 +166,11 @@
                         </article>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- // HOME SECTION 2 -->
 
             <!-- HOME SECTION 3 -->
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <h4 class="margin-bottom-15"><b>Business</b></h4>
 
@@ -322,12 +310,12 @@
                         </article>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- // HOME SECTION 3 -->
 
         </div>
 
-        @include('frontend.sidebar',['something'])
+        {{-- @include('frontend.sidebar',['something']) --}}
 
     </div>
 
@@ -335,19 +323,22 @@
         <div class="col-md-8">
 
             <h3 class="margin-bottom-15"><b>Top Stories</b></h3>
+            @if(count($news_list) > 0)
             <article class="style3 style-alt">
                 <a href="../17_post_01.html">
                     <div class="overlay overlay-02"></div>
                     <div class="post-thumb">
-                        <div class="small-title cat">Travel</div>
+                        <!-- <div class="small-title cat">Travel</div> -->
                         <div class="post-excerpt">
                             <div class="meta">
-                                <span class="date">Sep 22,2016</span>
+                                <span class="date">{{ date('d/m/Y', strtotime($news_list[0]->created_at)) }}</span>
                             </div>
-                            <h3 class="h1 text-white">Uber Launches Self-Driving Vehicles in Pittsburgh</h3>
+                            <h3 class="h1 text-white">{{ $news_list[0]->news_title }}</h3>
                             <div class="meta">
-                                <span class="author"><img src="{{asset('/frontend')}}/img/avatar/1.jpg" class="img-circle"
-                                                          alt=""> by Babs C.</span>
+                                <span class="author">
+                                    <img src="{{asset('/frontend')}}/img/avatar/1.jpg" class="img-circle"
+                                                          alt="">{{ $news_list[0]->news_posted_by }}
+                                </span>
                                 <span class="comment"><i class="fa fa-comment-o"></i> 5</span>
                                 <span class="views"><i class="fa fa-eye"></i> 682 views</span>
                             </div>
@@ -356,6 +347,7 @@
                     </div>
                 </a>
             </article>
+            @endif
 
             <article class="style2">
                 <div class="row">
@@ -488,10 +480,12 @@
                 <h4>Most Shared</h4>
 
                 <div class="mini-posts">
+                    
+                    @foreach($news_list as $news)
                     <article class="style2">
                         <div class="row">
                             <div class="col-md-4 col-sm-4">
-                                <a href="../17_post_01.html">
+                                <a href="{{ route('articleDetails', $news->id) }}">
                                     <div class="article-thumb">
                                         <img src="{{asset('/frontend')}}/img/side/01/1.jpg" class="img-responsive" alt="">
                                     </div>
@@ -500,108 +494,17 @@
                             <div class="col-md-8 col-sm-8">
                                 <div class="post-excerpt no-padding">
                                     <div class="meta">
-                                        <span>Sep 19, 2016</span>
+                                        <span>{{ date('d/m/Y', strtotime($news->created_at)) }}</span>
                                     </div>
                                     <h5>
-                                        <a href="./17_post_01.html">What You Missed While Not Watching the Debate1</a>
+                                        <a href="{{ route('articleDetails', $news->id) }}">{{ $news->news_title }}</a>
                                     </h5>
                                 </div>
                             </div>
                         </div>
                     </article>
+                    @endforeach
 
-                    <article class="style2">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <a href="../17_post_01.html">
-                                    <div class="article-thumb">
-                                        <img src="{{asset('/frontend')}}/img/side/01/2.jpg" class="img-responsive" alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-8 col-sm-8">
-                                <div class="post-excerpt no-padding">
-                                    <div class="meta">
-                                        <span>Sep 19, 2016</span>
-                                    </div>
-                                    <h5>
-                                        <a href="./17_post_01.html">New Doodle Celebrates Google Turning 18 All Over
-                                            Again</a>
-                                    </h5>
-                                    <div class="meta">
-                                    <span class="comment">
-                                        <i class="fa fa-comment-o"></i> 18</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="style2">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <a href="../17_post_01.html">
-                                    <div class="article-thumb">
-                                        <img src="{{asset('/frontend')}}/img/side/01/3.jpg" class="img-responsive" alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-8 col-sm-8">
-                                <div class="post-excerpt no-padding">
-                                    <div class="meta">
-                                        <span>Sep 19, 2016</span>
-                                    </div>
-                                    <h5>
-                                        <a href="./17_post_01.html">We Must Move Forward on Clean Power Plan</a>
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="style2">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <a href="../17_post_01.html">
-                                    <div class="article-thumb">
-                                        <img src="{{asset('/frontend')}}/img/side/01/4.jpg" class="img-responsive" alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-8 col-sm-8">
-                                <div class="post-excerpt no-padding">
-                                    <div class="meta">
-                                        <span>Sep 19, 2016</span>
-                                    </div>
-                                    <h5>
-                                        <a href="./17_post_01.html">The Funeral of Shimon Peres to Be Held on Friday</a>
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="style2">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <a href="../17_post_01.html">
-                                    <div class="article-thumb">
-                                        <img src="{{asset('/frontend')}}/img/side/01/1.jpg" class="img-responsive" alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-8 col-sm-8">
-                                <div class="post-excerpt no-padding">
-                                    <div class="meta">
-                                        <span>Sep 19, 2016</span>
-                                    </div>
-                                    <h5>
-                                        <a href="./17_post_01.html">What You Missed While Not Watching the Debate</a>
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
                 </div>
             </div>
 
@@ -674,7 +577,7 @@
     </div>
 
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-8 padding-bottom-40">
 
             <div class="row padding-top-30">
@@ -1019,7 +922,7 @@
             </div>
         </aside>
 
-    </div>
+    </div> -->
 @endsection
 
 @section('scripts')

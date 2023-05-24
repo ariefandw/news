@@ -41,7 +41,7 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         try {
-            $tags = implode('|', $request->tag_id);
+            $tags = !empty($request->tag_id) ? implode('|', $request->tag_id) : null;
             $medias = implode('|', $request->medias);
 
             $news = new News();
