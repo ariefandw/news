@@ -342,8 +342,15 @@
                                 <span class="comment"><i class="fa fa-comment-o"></i> 5</span>
                                 <span class="views"><i class="fa fa-eye"></i> 682 views</span>
                             </div>
-                        </div>
-                        <img src="{{asset('/frontend')}}/img/home/01/15.jpg" class="img-responsive" alt="">
+                        </div>                        
+                        @php
+                        $medias = !empty($news_list[0]->news_medias) ? explode('|', $news_list[0]->news_medias) : null;
+                        $m = 'default.jpeg';
+                        if(isset($medias[0]) && !empty($medias[0])){
+                            $m = \App\Models\Media::findOrFail($medias[0])->media_url;
+                        }
+                        @endphp
+                        <img src="{{ asset(Storage::url($m)) }}" class="img-responsive" alt="">
                     </div>
                 </a>
             </article>
@@ -487,7 +494,14 @@
                             <div class="col-md-4 col-sm-4">
                                 <a href="{{ route('articleDetails', $news->id) }}">
                                     <div class="article-thumb">
-                                        <img src="{{asset('/frontend')}}/img/side/01/1.jpg" class="img-responsive" alt="">
+                                        @php
+                                        $medias = !empty($news->news_medias) ? explode('|', $news->news_medias) : null;
+                                        $m = 'default.jpeg';
+                                        if(isset($medias[0]) && !empty($medias[0])){
+                                            $m = \App\Models\Media::findOrFail($medias[0])->media_url;
+                                        }
+                                        @endphp
+                                        <img src="{{ asset(Storage::url($m)) }}" class="img-responsive" alt="">
                                     </div>
                                 </a>
                             </div>
