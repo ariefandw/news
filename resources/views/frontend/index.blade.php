@@ -9,14 +9,14 @@
         <!-- Indicators -->
         <ol class="carousel-indicators">
         @foreach($ad_list as $i => $ad)
-        <li data-target="#myCarousel" data-slide-to="{{ $i }}" class="{{ $i == 1 ? 'active' : '' }}"></li>
+        <li data-target="#myCarousel" data-slide-to="{{ $i }}" class="{{ $i == 0 ? 'active' : '' }}"></li>
         @endforeach
         </ol>
 
         <!-- Slides -->
         <div class="carousel-inner">
             @foreach($ad_list as $i => $ad)
-            <div class="item {{ $i == 1 ? 'active' : '' }}">
+            <div class="item {{ $i == 0 ? 'active' : '' }}">
                 <img src="{{asset(Storage::url($ad->add_image))}}" alt="Image 1">
                 <div class="carousel-caption">
                 <h3>Slide 1</h3>

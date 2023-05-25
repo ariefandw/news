@@ -15,7 +15,7 @@
             @php
                 $m = \App\Models\Media::findOrFail($media);
             @endphp
-            <li data-target="#myCarousel" data-slide-to="{{ $i }}" class="{{ $i == 1 ? 'active' : '' }}"></li>
+            <li data-target="#myCarousel" data-slide-to="{{ $i }}" class="{{ $i == 0 ? 'active' : '' }}"></li>
             @endforeach
         @endif
         </ol>
@@ -28,7 +28,7 @@
             @php
                 $m = \App\Models\Media::findOrFail($media);
             @endphp
-            <div class="item {{ $i == 1 ? 'active' : '' }}">
+            <div class="item {{ $i == 0 ? 'active' : '' }}">
                 <img src="{{ Storage::url($m->media_url) }}" alt="Image 1">
             </div>
             @endforeach
