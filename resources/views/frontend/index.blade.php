@@ -17,10 +17,10 @@
         <div class="carousel-inner">
             @foreach($ad_list as $i => $ad)
             <div class="item {{ $i == 0 ? 'active' : '' }}">
-                <img src="{{asset(Storage::url($ad->add_image))}}" alt="Image 1">
+                <img src="{{asset(Storage::url($ad->add_image))}}" style="width:100%;" alt="Image 1">
                 <div class="carousel-caption">
-                <h3>Slide 1</h3>
-                <p>Description of Slide 1</p>
+                <h3>{{ $ad->add_title }}</h3>
+                <p>{{ $ad->add_description }}</p>
                 </div>
             </div>
             @endforeach
@@ -333,14 +333,14 @@
                             <div class="meta">
                                 <span class="date">{{ date('d/m/Y', strtotime($news_list[0]->created_at)) }}</span>
                             </div>
-                            <h3 class="h1 text-white">{{ $news_list[0]->news_title }}</h3>
+                            <h3 class="h3 text-white">{{ $news_list[0]->news_title }}</h3>
                             <div class="meta">
                                 <span class="author">
-                                    <img src="{{asset('/frontend')}}/img/avatar/1.jpg" class="img-circle"
-                                                          alt="">{{ $news_list[0]->news_posted_by }}
+                                    <!-- <img src="{{asset('/frontend')}}/img/avatar/1.jpg" class="img-circle" alt=""> -->
+                                    Oleh: {{ $news_list[0]->news_posted_by }}
                                 </span>
-                                <span class="comment"><i class="fa fa-comment-o"></i> 5</span>
-                                <span class="views"><i class="fa fa-eye"></i> 682 views</span>
+                                <!-- <span class="comment"><i class="fa fa-comment-o"></i> 5</span> -->
+                                <span class="views"><i class="fa fa-eye"></i> {{ $news_list[0]->viewed }} dilihat</span>
                             </div>
                         </div>                        
                         @php
@@ -350,7 +350,7 @@
                             $m = \App\Models\Media::findOrFail($medias[0])->media_url;
                         }
                         @endphp
-                        <img src="{{ asset(Storage::url($m)) }}" class="img-responsive" alt="">
+                        <img src="{{ asset(Storage::url($m)) }}" class="img-responsive" style="width:100%;" alt="">
                     </div>
                 </a>
             </article>

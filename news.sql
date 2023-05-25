@@ -28,13 +28,13 @@ CREATE TABLE IF NOT EXISTS `advertisements` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table news.advertisements: ~3 rows (approximately)
 INSERT INTO `advertisements` (`id`, `add_image`, `add_title`, `add_description`, `add_rate`, `add_position`, `add_lifetime`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(2, 'advertisement/q18uHazfWKR7cna1gpx87d46JLE1AvhCUqdgxbPo.jpg', 'Pran', 'Pran RFL plastic add.', '5000', 3, 0, 2, '2023-05-23 18:00:00', '2023-05-23 18:00:00', NULL),
-	(3, 'public/advertisement/Da0kWn6Go4NgOKLdU3bSVXpLabeyXiSfciutXalX.jpg', 'Ad 3', 'Test', '0', 3, 0, 2, '2023-05-24 11:32:48', '2023-05-24 11:32:48', NULL),
-	(4, 'public/advertisement/vprG8bTmVOwM1XqjvsPEbSeleDlwtH6GBzM2ExL2.jpg', 'Pran', 'Pran RFL plastic add.', '0', 3, 0, 2, '2023-05-24 11:38:37', '2023-05-24 11:38:37', NULL);
+	(5, 'public/advertisement/iAcmIfncmyIdYcic0XYQdVGgXC9vru0zZUCLam9S.jpg', 'Pran', 'Pran RFL plastic add.', '0', 3, 0, 2, '2023-05-25 00:00:00', '2023-05-25 00:00:00', NULL),
+	(6, 'public/advertisement/mmvS5xwJO887W8XvBUPTiKvnejZIzGbgF9Re9k87.jpg', 'Ad2', 'adbfghj', '0', 3, 0, 2, '2023-05-25 00:00:41', '2023-05-25 00:00:41', NULL),
+	(7, 'public/advertisement/vqTpvKCH4RDjvvEqYHRXTIdMehZ4TgSXQo73ATA3.jpg', 'Ad3', 'dfhffdjfdjgfj', '0', 3, 0, 2, '2023-05-25 00:01:16', '2023-05-25 00:01:16', NULL);
 
 -- Dumping structure for table news.categories
 CREATE TABLE IF NOT EXISTS `categories` (
@@ -363,12 +363,14 @@ CREATE TABLE IF NOT EXISTS `media` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table news.media: ~2 rows (approximately)
+-- Dumping data for table news.media: ~3 rows (approximately)
 INSERT INTO `media` (`id`, `media_type`, `media_title`, `media_description`, `media_url`, `media_visable`, `created_at`, `updated_at`) VALUES
 	(1, 1, NULL, NULL, 'public/news-image/Ke88sYzDie8qe5wXaFuyrdPEbnmO2qMLMxZTLE34.jpg', 1, '2023-05-23 14:29:50', '2023-05-23 14:29:50'),
-	(2, 1, NULL, NULL, 'public/news-image/l5dymyB4JzSoVVok824yc8bFgbaCGMd0VnMO6dzM.jpg', 1, '2023-05-23 16:05:53', '2023-05-23 16:05:53');
+	(2, 1, NULL, NULL, 'public/news-image/l5dymyB4JzSoVVok824yc8bFgbaCGMd0VnMO6dzM.jpg', 1, '2023-05-23 16:05:53', '2023-05-23 16:05:53'),
+	(3, 1, NULL, NULL, 'public/news-image/khX2CffxelcgMsCrtwfQI196iycj5baazsufRZKY.jpg', 1, '2023-05-24 23:42:54', '2023-05-24 23:42:54'),
+	(4, 1, NULL, NULL, 'public/news-image/dASDeS5Aroxw4oZsj1kOYto4MN2rVDROH5Dhypi6.jpg', 1, '2023-05-24 23:51:42', '2023-05-24 23:51:42');
 
 -- Dumping structure for table news.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -420,7 +422,7 @@ INSERT INTO `news` (`id`, `news_lang`, `news_title`, `news_provider`, `news_desc
 	(2, 'EN', 'Judul 2', 'A', '<p>sgdfhgj<p></p></p>', '2|1', 'Judul 1', NULL, '2|3', 1, 0, 0, NULL, NULL, NULL, 0, '2023-05-23 16:41:06', '2023-05-23 16:41:06', NULL),
 	(3, 'EN', 'Judul 2', 'A', '<p></p><p style="text-align: justify; ">MANGGAR - Ketua DPRD Beltim Fezzi Uktolseja, SE, MM menghadiri acara Apel Gelar Pasukan Operasi Patuh Menumbing Tahun 2022 yang dilaksanakan di Lapangan Upacara Mapolres Belitung Timur, Senin (13/6).</p><p style="text-align: justify; ">Apel dipimpin oleh Kapolres Beltim serta turut dihadiri Forkopimda, Personil Dishub, Personil Satpol-PP, Basarnas, BPBD, Dinsos, Jasa Raharja, dan Polsek se-Beltim.</p><p style="text-align: justify; ">Pelaksanaan Operasi Patuh Menumbing Tahun 2022, dijadwalkan berlangsung mulai hari ini 13 Juni sampai dengan 26 Juni 2022.</p><p>Sumber:&nbsp;<span style="letter-spacing: 0.2px;">Humas Setwan<br></span><span style="letter-spacing: 0.2px;">Penulis:&nbsp;</span><span style="letter-spacing: 0.2px;">#PerhuproSetwanBeltim<br></span><span style="letter-spacing: 0.2px;">Fotografer:&nbsp;</span><span style="letter-spacing: 0.2px;">Js<br></span><span style="letter-spacing: 0.2px;">Bidang Informasi:&nbsp;</span><span style="letter-spacing: 0.2px;">Setwan</span></p><p></p><p></p><p></p>', '2|1', 'Judul 2', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 0, '2023-05-24 12:27:35', '2023-05-24 12:27:35', NULL),
 	(4, 'EN', 'Judul 2', 'A', '<p><p></p><p style="text-align: justify; ">MANGGAR - Ketua DPRD Beltim Fezzi Uktolseja, SE, MM menghadiri acara Apel Gelar Pasukan Operasi Patuh Menumbing Tahun 2022 yang dilaksanakan di Lapangan Upacara Mapolres Belitung Timur, Senin (13/6).</p><p style="text-align: justify; ">Apel dipimpin oleh Kapolres Beltim serta turut dihadiri Forkopimda, Personil Dishub, Personil Satpol-PP, Basarnas, BPBD, Dinsos, Jasa Raharja, dan Polsek se-Beltim.</p><p style="text-align: justify; ">Pelaksanaan Operasi Patuh Menumbing Tahun 2022, dijadwalkan berlangsung mulai hari ini 13 Juni sampai dengan 26 Juni 2022.</p><p></p><p></p><p></p></p>', '2|1', 'Judul 2', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 0, '2023-05-24 12:28:05', '2023-05-24 14:14:08', NULL),
-	(5, 'EN', 'Judul 3', 'A', '<p><p>Test<p></p></p></p>', '1', 'Judul 3', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 0, '2023-05-24 14:16:11', '2023-05-24 21:49:56', NULL);
+	(5, 'EN', 'Rapat Badan Musyawarah Penjadwalan Agenda Pembahasan Raperda APBD TA.2023', 'A', '<p><p><p><p><p>Test<p></p></p></p></p></p></p>', '4', 'Rapat Badan Musyawarah Penjadwalan Agenda Pembahasan Raperda APBD TA.2023', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 0, '2023-05-24 14:16:11', '2023-05-24 23:52:02', NULL);
 
 -- Dumping structure for table news.pages
 CREATE TABLE IF NOT EXISTS `pages` (
@@ -462,7 +464,7 @@ CREATE TABLE IF NOT EXISTS `pullings` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table news.pullings: ~1 rows (approximately)
+-- Dumping data for table news.pullings: ~0 rows (approximately)
 INSERT INTO `pullings` (`id`, `language`, `question`, `yes`, `no`, `no_comments`, `status`, `published_at`, `created_at`, `updated_at`) VALUES
 	(4, 'EN', 'এখনকার পরিবেশে সুষ্ঠু নির্বাচন নিয়ে আশার আলো দেখা যাচ্ছে না—এম হাফিজউদ্দিন খানের এ বক্তব্যের সঙ্গে আপনি কি একমত?', NULL, NULL, NULL, 1, '2023-05-23 23:42:49', '2023-05-23 23:42:49', '2023-05-23 16:42:49');
 
@@ -967,7 +969,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table news.users: ~1 rows (approximately)
+-- Dumping data for table news.users: ~0 rows (approximately)
 INSERT INTO `users` (`id`, `user_image`, `user_name`, `user_mobile`, `user_location`, `user_type`, `user_ip`, `user_status`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, NULL, 'Foysal', NULL, NULL, 1, NULL, 0, 'admin@gmail.com', '$2a$12$AScg6Y5t2u5gQTWDqjvQZ.WIUBMzDmyQQt1sXEcnYAXlRwdWdiUoG', 'iTJtExtOY7R01WUWbbd0OGOQmhEP2ZBWPGp3khJNtVV8QUMtXAhzsZDKCZ65', '2017-12-04 09:04:33', '2017-12-04 09:04:33');
 
@@ -978,11 +980,11 @@ CREATE TABLE IF NOT EXISTS `visitors` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table news.visitors: ~1 rows (approximately)
 INSERT INTO `visitors` (`id`, `ip`, `created_at`, `updated_at`) VALUES
-	(22, '127.0.0.1', '2023-05-25 05:05:00', NULL);
+	(40, '127.0.0.1', '2023-05-25 07:03:50', NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

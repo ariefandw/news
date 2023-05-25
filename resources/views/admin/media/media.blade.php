@@ -264,6 +264,8 @@
                         $('#media-body').empty();
                         $('#media-body').html(JSON.parse(res)); //output response from server
                         submit_btn.val("Upload").prop("disabled", false); //enable submit button once ajax is done
+
+                        location.reload(true);
                     });
                 }
             }
