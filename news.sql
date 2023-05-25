@@ -414,13 +414,13 @@ CREATE TABLE IF NOT EXISTS `news` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table news.news: ~4 rows (approximately)
+-- Dumping data for table news.news: ~5 rows (approximately)
 INSERT INTO `news` (`id`, `news_lang`, `news_title`, `news_provider`, `news_description`, `news_medias`, `news_posted_by`, `category`, `tag`, `status`, `is_fetured`, `is_rss`, `rss_url`, `rss_media`, `rss_media_thumbnail`, `viewed`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 'EN', 'Judul 7', 'A', '<p>sgdfhgj<p></p></p>', '2|1', 'Judul 1', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 0, '2023-05-23 16:39:48', '2023-05-24 14:14:28', NULL),
 	(2, 'EN', 'Judul 2', 'A', '<p>sgdfhgj<p></p></p>', '2|1', 'Judul 1', NULL, '2|3', 1, 0, 0, NULL, NULL, NULL, 0, '2023-05-23 16:41:06', '2023-05-23 16:41:06', NULL),
 	(3, 'EN', 'Judul 2', 'A', '<p></p><p style="text-align: justify; ">MANGGAR - Ketua DPRD Beltim Fezzi Uktolseja, SE, MM menghadiri acara Apel Gelar Pasukan Operasi Patuh Menumbing Tahun 2022 yang dilaksanakan di Lapangan Upacara Mapolres Belitung Timur, Senin (13/6).</p><p style="text-align: justify; ">Apel dipimpin oleh Kapolres Beltim serta turut dihadiri Forkopimda, Personil Dishub, Personil Satpol-PP, Basarnas, BPBD, Dinsos, Jasa Raharja, dan Polsek se-Beltim.</p><p style="text-align: justify; ">Pelaksanaan Operasi Patuh Menumbing Tahun 2022, dijadwalkan berlangsung mulai hari ini 13 Juni sampai dengan 26 Juni 2022.</p><p>Sumber:&nbsp;<span style="letter-spacing: 0.2px;">Humas Setwan<br></span><span style="letter-spacing: 0.2px;">Penulis:&nbsp;</span><span style="letter-spacing: 0.2px;">#PerhuproSetwanBeltim<br></span><span style="letter-spacing: 0.2px;">Fotografer:&nbsp;</span><span style="letter-spacing: 0.2px;">Js<br></span><span style="letter-spacing: 0.2px;">Bidang Informasi:&nbsp;</span><span style="letter-spacing: 0.2px;">Setwan</span></p><p></p><p></p><p></p>', '2|1', 'Judul 2', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 0, '2023-05-24 12:27:35', '2023-05-24 12:27:35', NULL),
 	(4, 'EN', 'Judul 2', 'A', '<p><p></p><p style="text-align: justify; ">MANGGAR - Ketua DPRD Beltim Fezzi Uktolseja, SE, MM menghadiri acara Apel Gelar Pasukan Operasi Patuh Menumbing Tahun 2022 yang dilaksanakan di Lapangan Upacara Mapolres Belitung Timur, Senin (13/6).</p><p style="text-align: justify; ">Apel dipimpin oleh Kapolres Beltim serta turut dihadiri Forkopimda, Personil Dishub, Personil Satpol-PP, Basarnas, BPBD, Dinsos, Jasa Raharja, dan Polsek se-Beltim.</p><p style="text-align: justify; ">Pelaksanaan Operasi Patuh Menumbing Tahun 2022, dijadwalkan berlangsung mulai hari ini 13 Juni sampai dengan 26 Juni 2022.</p><p></p><p></p><p></p></p>', '2|1', 'Judul 2', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 0, '2023-05-24 12:28:05', '2023-05-24 14:14:08', NULL),
-	(5, 'EN', 'Judul 3', 'A', '<p>Test<p></p></p>', NULL, 'Judul 3', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 0, '2023-05-24 14:16:11', '2023-05-24 14:19:10', NULL);
+	(5, 'EN', 'Judul 3', 'A', '<p><p>Test<p></p></p></p>', '1', 'Judul 3', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 0, '2023-05-24 14:16:11', '2023-05-24 21:49:56', NULL);
 
 -- Dumping structure for table news.pages
 CREATE TABLE IF NOT EXISTS `pages` (
@@ -462,7 +462,7 @@ CREATE TABLE IF NOT EXISTS `pullings` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table news.pullings: ~0 rows (approximately)
+-- Dumping data for table news.pullings: ~1 rows (approximately)
 INSERT INTO `pullings` (`id`, `language`, `question`, `yes`, `no`, `no_comments`, `status`, `published_at`, `created_at`, `updated_at`) VALUES
 	(4, 'EN', 'এখনকার পরিবেশে সুষ্ঠু নির্বাচন নিয়ে আশার আলো দেখা যাচ্ছে না—এম হাফিজউদ্দিন খানের এ বক্তব্যের সঙ্গে আপনি কি একমত?', NULL, NULL, NULL, 1, '2023-05-23 23:42:49', '2023-05-23 23:42:49', '2023-05-23 16:42:49');
 
@@ -967,7 +967,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table news.users: ~0 rows (approximately)
+-- Dumping data for table news.users: ~1 rows (approximately)
 INSERT INTO `users` (`id`, `user_image`, `user_name`, `user_mobile`, `user_location`, `user_type`, `user_ip`, `user_status`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, NULL, 'Foysal', NULL, NULL, 1, NULL, 0, 'admin@gmail.com', '$2a$12$AScg6Y5t2u5gQTWDqjvQZ.WIUBMzDmyQQt1sXEcnYAXlRwdWdiUoG', 'iTJtExtOY7R01WUWbbd0OGOQmhEP2ZBWPGp3khJNtVV8QUMtXAhzsZDKCZ65', '2017-12-04 09:04:33', '2017-12-04 09:04:33');
 
@@ -982,7 +982,7 @@ CREATE TABLE IF NOT EXISTS `visitors` (
 
 -- Dumping data for table news.visitors: ~1 rows (approximately)
 INSERT INTO `visitors` (`id`, `ip`, `created_at`, `updated_at`) VALUES
-	(16, '127.0.0.1', '2023-05-24 21:01:09', NULL);
+	(22, '127.0.0.1', '2023-05-25 05:05:00', NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
