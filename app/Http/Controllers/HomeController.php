@@ -44,21 +44,9 @@ class HomeController extends Controller
 
     public function articleDetails($id)
     {
+        $counter = $this->counter;
         $news = News::findOrFail($id);
 
-        return view('frontend.details',compact('news'));
-    }
-    
-    public function categoryNews($id, $category_slug = null)
-    {
-        $news_list = News::where('id', -1)
-            ->orderBy('created_at','desc')
-            ->get();
-
-        $ad_list = Advertisement::where('status', 2)
-            ->orderBy('created_at','desc')
-            ->get();
-
-        return view('frontend.index',compact('news_list', 'ad_list'));
+        return view('frontend.details',compact('news', 'counter'));
     }
 }
